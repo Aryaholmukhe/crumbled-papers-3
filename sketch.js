@@ -21,7 +21,7 @@ function setup() {
 	groundBody = Bodies.rectangle(width/2, height-35, width,10, {isStatic:true})
 	World.add(world, groundBody)
 	ground = createSprite(width/2, height-35, width,10);
-	paperObject = new Paper(200, 500);
+	paperObject = new Paper(300, 250);
 
 	s1s = createSprite(960, 510, 20, 300)
 	s1 = Bodies.rectangle(960, 510, 20, 300, {isStatic:true})
@@ -33,7 +33,7 @@ function setup() {
 	s3 = Bodies.rectangle(1240, 510, 25, 300, {isStatic:true})
 	World.add(world, s3)
 	
-	launch = new Launcher(paperObject, {x:200, y:100})
+	launch = new Launcher(paperObject.body, {x:300, y:250})
   
 	Engine.run(engine);
 }
@@ -49,20 +49,14 @@ function draw() {
   launch.display()
   drawSprites();
   s2.display()
-  keyPressed();
   s1s.x=s1.x;
   s3s.x=s3.x;
  
 }
 
-function keyPressed(){
-	if(keyIsDown(UP_ARROW) ){
-	Matter.Body.applyForce(paperObject.body, paperObject.body.position,{x:85, y:-85})
-}
-}
 
 function mouseDragged(){
-    Matter.Body.setPosition(launch.body, {x:mouseX, y:mouseY})
+    Matter.Body.setPosition(paperObject.body, {x:mouseX, y:mouseY})
 }
 
 function mouseReleased(){
