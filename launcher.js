@@ -3,7 +3,7 @@ class Launcher{
         var options = {
             bodyA:bodyA,
             pointB:pointB,
-            stiffness:0.04,
+            stiffness:0.004,
             length:10
         }
         this.pointB=pointB;
@@ -18,6 +18,7 @@ class Launcher{
         if(this.launcher.bodyA){
        var pointA = this.launcher.bodyA.position;
        var pointB = this.pointB;
+       strokeWeight(3)
        line(pointA.x, pointA.y, pointB.x, pointB.y)
         }
 
